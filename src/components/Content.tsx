@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
+import Loading from './Loading';
 
 const Content = () => {
     const [state, setState] = useState({} as any);
@@ -34,7 +35,7 @@ const Content = () => {
         <Row>
             
         </Row>
-    ) : <></>;
+    ) : <Loading />;
         
 };
 
