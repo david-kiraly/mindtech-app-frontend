@@ -4,7 +4,18 @@ import DaySelect from './DaySelect';
 import Loading from './Loading';
 
 const Content = () => {
-    const [state, setState] = useState({} as any);
+    const [state, setState] = useState({
+        availableChartTypes: [
+            "PieChartWithCustomizedLabel",
+            "SimpleLineChart",
+            "LineBarAreaComposedChart"
+        ],
+        chartTypes: {
+            chartType1: "PieChartWithCustomizedLabel",
+            chartType2: "SimpleLineChart",
+            chartType3: "LineBarAreaComposedChart"
+        }
+    } as any);
 
     const [availableDays, setAvailableDays] = useState([]);
     const [data, setData] = useState(null);
@@ -34,6 +45,22 @@ const Content = () => {
     const onDayChange = (val: any) => {
         setSelectedDay(val);
         fetchData(val);
+    }
+
+    const onChartTypeChange = (chartNumber: any, val: any) => {
+        const newChartTypes = Object.assign(
+            {},
+            { ...state.chartTypes },
+            { ["chartType"+ chartNumber]: val }
+        );
+
+        const newState = Object.assign(
+            {},
+            { ...state },
+            { chartTypes: newChartTypes }
+        );
+        
+        setState(newState);
     }
 
     return data ? 
