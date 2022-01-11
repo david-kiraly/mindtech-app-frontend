@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
+import DaySelect from './DaySelect';
 import Loading from './Loading';
 
 const Content = () => {
@@ -30,10 +31,15 @@ const Content = () => {
             });
     }, []);
 
+    const onDayChange = (val: any) => {
+        setSelectedDay(val);
+        fetchData(val);
+    }
+
     return data ? 
     (
         <Row>
-            
+            <DaySelect availableDays = { availableDays } selectedDay = { selectedDay } { ...state } onDayChange = { onDayChange } />
         </Row>
     ) : <Loading />;
         
