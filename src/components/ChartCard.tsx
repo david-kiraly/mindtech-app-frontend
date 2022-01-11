@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import Chart from './Chart';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
@@ -20,7 +21,7 @@ const ChartCard = (props: any) => {
                     </Row>
                     <Row>
                         <Col>
-                            Chart
+                            <Chart chartType = { props.chartTypes["chartType"+ props.chartNumber] } selectedDay = { props.selectedDay } data = { props.data } />
                         </Col>
                     </Row>
                 </Card.Body>
