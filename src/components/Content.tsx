@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
+import Charts from './Charts';
 import DaySelect from './DaySelect';
 import Loading from './Loading';
 
@@ -67,6 +68,7 @@ const Content = () => {
     (
         <Row>
             <DaySelect availableDays = { availableDays } selectedDay = { selectedDay } { ...state } onDayChange = { onDayChange } />
+            <Charts data = { data } { ...state } selectedDay = { selectedDay } onChartTypeChange = { onChartTypeChange } />
         </Row>
     ) : <Loading />;
         
