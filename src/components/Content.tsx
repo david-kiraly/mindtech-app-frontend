@@ -26,7 +26,7 @@ const Content = () => {
     const fetchData = (day: string) => {
         const escapedDate = day.substring(0,10).replaceAll('-', '_');
 
-        fetch('http://localhost:8000/api/getSpecificDay/'+ escapedDate)
+        fetch('https://mindtech-app-backend.herokuapp.com/api/getSpecificDay/'+ escapedDate)
             .then(res => res.json())
             .then(data => {
                 setData(data);
@@ -34,7 +34,7 @@ const Content = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/getAvailableDays')
+        fetch('https://mindtech-app-backend.herokuapp.com/api/getAvailableDays')
             .then(res => res.json())
             .then(data => {
                 setAvailableDays(data);
