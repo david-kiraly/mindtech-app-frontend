@@ -1,11 +1,12 @@
 import React from 'react'
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import { ISingleDayCovidData } from '../../Interfaces';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#1ea11b'];
 
 const PieChartWithCustomizedLabel = (props: any) => {
 
-    const dayData = props.data;
+    const dayData: ISingleDayCovidData = props.data;
 
     const data = [
         { name: 'infected', value: dayData.infected },

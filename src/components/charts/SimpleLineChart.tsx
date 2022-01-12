@@ -1,10 +1,11 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { ISingleDayCovidData } from '../../Interfaces';
 
 
 const SimpleLineChart = (props: any) => {
 
-    const dayData = props.data;
+    const dayData: ISingleDayCovidData = props.data;
 
     const data = [
         { name: 'infected', value: dayData.infected },

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Row } from 'react-bootstrap';
+import { ISingleDayCovidData } from '../Interfaces';
 import Charts from './Charts';
 import DaySelect from './DaySelect';
 import Loading from './Loading';
@@ -18,9 +19,9 @@ const Content = () => {
         }
     } as any);
 
-    const [availableDays, setAvailableDays] = useState([]);
-    const [data, setData] = useState(null);
-    const [selectedDay, setSelectedDay] = useState(null);
+    const [availableDays, setAvailableDays] = useState<[]>([]);
+    const [data, setData] = useState<ISingleDayCovidData | null>(null);
+    const [selectedDay, setSelectedDay] = useState<string | null>(null);
 
     const fetchData = (day: string) => {
         const escapedDate = day.substring(0,10).replaceAll('-', '_');
@@ -43,12 +44,12 @@ const Content = () => {
             });
     }, []);
 
-    const onDayChange = (val: any) => {
+    const onDayChange = (val: string) => {
         setSelectedDay(val);
         fetchData(val);
     }
 
-    const onChartTypeChange = (chartNumber: any, val: any) => {
+    const onChartTypeChange = (chartNumber: number, val: string) => {
         const newChartTypes = Object.assign(
             {},
             { ...state.chartTypes },

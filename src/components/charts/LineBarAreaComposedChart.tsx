@@ -9,10 +9,11 @@ import {
     ResponsiveContainer,
   } from 'recharts';
 
+  import { ISingleDayCovidData } from '../../Interfaces';
 
 const LineBarAreaComposedChart = (props: any) => {
 
-    const dayData = props.data;
+    const dayData: ISingleDayCovidData = props.data;
 
     const data = [
         { name: 'infected', value: dayData.infected },
